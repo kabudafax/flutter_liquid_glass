@@ -49,11 +49,23 @@ class LiquidRoundedSuperellipse extends LiquidShape {
   /// This is the radius of the corners of the squircle.
   final Radius borderRadius;
 
+
+  /// 注意：在futter 3.32一下版本中，将使用标准圆角矩形
+  /// 而非IOS风格的超椭圆，视觉效果存在轻微差异
   @override
-  OutlinedBorder get _equivalentOutlinedBorder => RoundedSuperellipseBorder(
+  OutlinedBorder get _equivalentOutlinedBorder {
+    try {
+      return RoundedSuperellipseBorder(
         borderRadius: BorderRadius.all(borderRadius),
         side: side,
       );
+    } catch (e) {
+      return RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(borderRadius),
+        side: side,
+      );
+    }
+  }
 
   @override
   LiquidRoundedSuperellipse copyWith({
