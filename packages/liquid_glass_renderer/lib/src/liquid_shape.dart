@@ -36,7 +36,6 @@ sealed class LiquidShape extends OutlinedBorder with EquatableMixin {
 
 /// Represents a squircle shape that can be used by a [LiquidGlass] widget.
 ///
-/// Works like a [RoundedSuperellipseBorder].
 class LiquidRoundedSuperellipse extends LiquidShape {
   /// Creates a new [LiquidRoundedSuperellipse] with the given [borderRadius].
   const LiquidRoundedSuperellipse({
@@ -54,17 +53,17 @@ class LiquidRoundedSuperellipse extends LiquidShape {
   /// 而非IOS风格的超椭圆，视觉效果存在轻微差异
   @override
   OutlinedBorder get _equivalentOutlinedBorder {
-    try {
-      return RoundedSuperellipseBorder(
-        borderRadius: BorderRadius.all(borderRadius),
-        side: side,
-      );
-    } catch (e) {
+    // try {
+    //   return RoundedSuperellipseBorder(
+    //     borderRadius: BorderRadius.all(borderRadius),
+    //     side: side,
+    //   );
+    // } catch (e) {
       return RoundedRectangleBorder(
         borderRadius: BorderRadius.all(borderRadius),
         side: side,
       );
-    }
+    // }
   }
 
   @override
