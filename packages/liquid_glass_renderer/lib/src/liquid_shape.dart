@@ -53,17 +53,14 @@ class LiquidRoundedSuperellipse extends LiquidShape {
   /// 而非IOS风格的超椭圆，视觉效果存在轻微差异
   @override
   OutlinedBorder get _equivalentOutlinedBorder {
-    // try {
-    //   return RoundedSuperellipseBorder(
-    //     borderRadius: BorderRadius.all(borderRadius),
-    //     side: side,
-    //   );
-    // } catch (e) {
-      return RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(borderRadius),
-        side: side,
-      );
-    // }
+      // return RoundedSuperellipseBorder(
+      //   borderRadius: BorderRadius.all(borderRadius),
+      //   side: side,
+      // );
+    return RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(borderRadius),
+      side: side,
+    );
   }
 
   @override
